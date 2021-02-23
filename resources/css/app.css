@@ -1,3 +1,10 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.button-dark {
+    @apply p-4 rounded shadow font-bold text-gray-200 bg-gray-800 hover:bg-gray-200 hover:text-red-600
+}
+.button-light {
+    @apply p-4 rounded shadow font-bold text-gray-800 bg-gray-200 hover:bg-gray-700 hover:text-red-600
+}

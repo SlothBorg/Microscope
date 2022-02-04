@@ -15,7 +15,11 @@ class UpdateUserNameToUsernameAndDropTeamId extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('name', 'username');
+            $table->string('email')->nullable()->change();
             $table->dropColumn('current_team_id');
+        });
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('username')->unique()->change();
         });
     }
 

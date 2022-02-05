@@ -12,7 +12,8 @@ class ExampleTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    /** @test */
+    public function example()
     {
         $response = $this->get('/');
 

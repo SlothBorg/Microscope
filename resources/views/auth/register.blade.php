@@ -12,11 +12,13 @@
             <div>
                 <x-jet-label for="username" value="{{ __('Username *') }}" />
                 <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus />
+                <p>Your username will be visible to other players in your game.</p>
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email (optional)') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
+                <p>Using an email to sign up, is optional but you will not be able to recover your password if you do not provided one.</p>
             </div>
 
             <div class="mt-4">

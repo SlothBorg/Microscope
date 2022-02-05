@@ -58,4 +58,21 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * overrides defaultProfilePhotoUrl from Laravel\Jetstream\HasProfilePhoto
+     *
+     * @return string
+     */
+    protected function defaultProfilePhotoUrl()
+    {
+        $username = trim(collect(explode(' ', $this->username))->map(function ($segment) {
+            return $segment[0] ?? '';
+        })->join(' '));
+
+        $backgroundColor = str_replace('#', '', config('site.lighGray'));
+        $fontColor = str_replace('#', '', config('site.darkGray'));
+
+        return 'https://ui-avatars.com/api/?name='.urlencode($username).'&color=' . $fontColor . '&background=' . $backgroundColor;
+    }
 }

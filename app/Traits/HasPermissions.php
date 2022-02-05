@@ -37,14 +37,14 @@ trait HasPermissions
         return $this->permissions()->detach($permission);
     }
 
-    public function addPermissions($permissions) : void
+    public function addPermissions(array $permissions) : void
     {
         foreach ($permissions as $permission) {
             $this->attachRole($permission);
         }
     }
 
-    public function removePermissions($permissions) : void
+    public function removePermissions(array $permissions) : void
     {
         foreach ($permissions as $permission) {
             $this->detachRole($permission);

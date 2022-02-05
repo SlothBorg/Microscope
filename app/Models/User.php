@@ -63,12 +63,12 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    /**
-     * overrides defaultProfilePhotoUrl from Laravel\Jetstream\HasProfilePhoto
-     *
-     * @return string
-     */
-    protected function defaultProfilePhotoUrl()
+    public function games()
+    {
+        return $this->belongsToMany(Game::class,'game_user');
+    }
+
+    protected function defaultProfilePhotoUrl() : string
     {
         $username = trim(collect(explode(' ', $this->username))->map(function ($segment) {
             return $segment[0] ?? '';

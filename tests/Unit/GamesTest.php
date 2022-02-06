@@ -15,7 +15,7 @@ class GamesTest extends TestCase
     public function games_creator_is_in_the_game()
     {
         $creator = User::factory()->create();
-        $game = Game::factory()->make([
+        $game = Game::factory()->create([
             'creator_id' => $creator->id,
         ]);
 

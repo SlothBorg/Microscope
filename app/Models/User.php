@@ -68,6 +68,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Game::class,'game_user');
     }
 
+    public function createdGames()
+    {
+        return Game::where('creator_id', $this->id);
+    }
+
     protected function defaultProfilePhotoUrl() : string
     {
         $username = trim(collect(explode(' ', $this->username))->map(function ($segment) {
